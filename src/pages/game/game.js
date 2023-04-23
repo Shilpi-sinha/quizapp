@@ -7,12 +7,11 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context/detailsProvider";
-
 import questions from "../../data/data";
 import { Link } from "react-router-dom";
 import Timer from "../../component/timer/timer";
 import styled from "@emotion/styled";
-import { FormHelperText, colors } from "@mui/material";
+import { FormHelperText, colors, withTheme } from "@mui/material";
 import { green } from "@mui/material/colors";
 import Button from "../../component/button/button";
 
@@ -107,30 +106,35 @@ const Game = (props) => {
   const handleEvent = (event) => {
     event.preventDefault();
 
-    if (value === answer) {
+    if (value === answer && value) {
       setScore(score + 100);
       setHelperText("You got it!");
-
       setError(false);
-    } else if (value !== answer) {
-      setScore(score - 100);
+      setTimeout(() => {
+        setNext(!next);
+        setHelperText(" ");
+      }, 1000);
+      setValue()
+    } else if (value !== answer && value) {
+      setScore(score);
       setHelperText("Sorry, wrong answer!");
       setError(true);
+      setTimeout(() => {
+        setNext(!next);
+        setHelperText(" ");
+      }, 1000);
+      setValue()
     } else {
       setHelperText("Please select an option.");
       setError(true);
     }
-    setTimeout(() => {
-      setNext(!next);
-      setHelperText(" ");
-    }, 1000);
   };
   return (
     <div className="block">
       <h5>{"Score:" + score}</h5>
       <Timer />
       <form onSubmit={handleEvent}>
-        <FormControl>
+        <FormControl required>
           <FormLabel id="demo-controlled-radio-buttons-group">
             {randomQuestion.question}
           </FormLabel>
@@ -142,34 +146,64 @@ const Game = (props) => {
           >
             <FormControlLabel
               value={randomQuestion.choice1}
-              control={<Radio />}
+              control={<Radio  sx={{
+                '& .MuiSvgIcon-root': {
+                  fontSize: 28,
+                },
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white"
+                },
+              }} />}
               label={randomQuestion.choice1}
-              inputLabelProps={{className:"par"}}
+              
             />
             <FormControlLabel
               value={randomQuestion.choice2}
-              control={<Radio />}
+              control={<Radio sx={{
+                '& .MuiSvgIcon-root': {
+                  fontSize: 28,
+                },
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white"
+                },
+              }}/>}
               label={randomQuestion.choice2}
             />
             <FormControlLabel
               value={randomQuestion.choice3}
-              control={<Radio />}
+              control={<Radio sx={{
+                '& .MuiSvgIcon-root': {
+                  fontSize: 28,
+                },
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white"
+                },
+              }}/>}
               label={randomQuestion.choice3}
             />
             <FormControlLabel
               value={randomQuestion.choice4}
-              control={<Radio />}
+              control={<Radio sx={{
+                '& .MuiSvgIcon-root': {
+                  fontSize: 28,
+                },
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white"
+                },
+              }}/>}
               label={randomQuestion.choice4}
             />
           </RadioGroup>
           <FormHelperText>
             <p>{helperText}</p>
-          </FormHelperText>
-          <br />
+          </FormHelperText>        
         </FormControl>
-
-       
-        <Button type="submit" id={"btn"} data={"Submit"}/>
+   
+        <Button type="submit" id={"btn"} data={"Submit"} />
         <Link to="/end">
           <Button id={"btn"} data={"End Game"}/>
         </Link>

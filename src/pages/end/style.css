@@ -11,6 +11,8 @@ end-container{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    
 }
 imput{
     color: #fff;
@@ -19,4 +21,7 @@ imput{
 label{
     color: white;
     
+}
+#end{
+    height: 100vh !important;
 }

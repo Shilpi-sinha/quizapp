@@ -10,9 +10,9 @@ form {
   font-size: 30px;
   color: aliceblue;
 }
-#demo-controlled-radio-ans-group{
-    font-size: 30px; 
-    color: aliceblue;
+#demo-controlled-radio-ans-group {
+  font-size: 30px;
+  color: aliceblue;
 }
 h5 {
   color: white;
@@ -26,10 +26,15 @@ h5 {
   margin: 0 auto;
   padding: 2rem;
   color: aliceblue;
+  height: 100vh;
 }
-p{
-    color:rgb(35, 122, 199);
-    font-size: 3.4rem;
+p {
+  color: rgb(35, 122, 199);
+  font-size: 2.4rem;
+  position: absolute;
+  margin-left: 0.1em;
+  margin-top: 9em;
+  width: 80%;
 }
 /* form{
     font-size: 5.4rem;
@@ -58,8 +63,4 @@ p{
   box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
   transform: scale(1.02);
   transform: transform 100ms;
-}
-.par{
-    color:rgb(21, 255, 0) !important;
-    font-size: 2rem  !important;
 }

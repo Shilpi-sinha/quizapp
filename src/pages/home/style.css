@@ -7,7 +7,6 @@
     align-items: center;
 } */
 *{
-    background-color: rgb(29, 26, 26);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -42,4 +41,21 @@ h1{
 .flex-center {
     justify-content: center;
     align-items: center;
+}
+
+#highScoresList {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+li{
+    font-size: 3.8rem;
+    margin-bottom: 0.5rem;
+    color: #fff; 
+}
+.p1{
+    color: white;
+   font-size: 2rem;
+   position: absolute;
+   margin-top: 50rem;
+    
 }

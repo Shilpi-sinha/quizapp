@@ -2,8 +2,8 @@ import "./style.css";
 
 
 const Button = (props) => {
-  const { data, id } = props;
+  const { data, id, handleClick } = props;
 
-  return <button className={id}>{data}</button>;
+  return <button className={id} onClick={handleClick}>{data}</button>;
 };
 export default Button;

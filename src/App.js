@@ -3,11 +3,12 @@ import AppRoute from "./routes/appRoute";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "rgb(29, 26, 26)" }}>
       <DetailsProvider>
       <AppRoute />
       </DetailsProvider>
     </div>
+   
   );
 }
 
