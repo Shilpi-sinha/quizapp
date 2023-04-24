@@ -1,13 +1,13 @@
-import "./style.css";
+import "../home/style.css";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context/detailsProvider";
-import { Link, ScrollRestoration } from "react-router-dom";
+import { Link, ScrollRestoration, useNavigate } from "react-router-dom";
 import Button from "../../component/button/button";
 
 const End = () => {
   const [score, setScore] = useContext(MyContext);
   const [name, setName] = useState();
-
+  const navigate =useNavigate();
   function getScoreFromLocalStorage(key) {
     const savedscore = localStorage.getItem(key);
     return JSON.parse(savedscore) || [];
@@ -20,6 +20,12 @@ const End = () => {
       savedScores.push(scoreObj);
       localStorage.setItem("scores", JSON.stringify(savedScores));
       alert("High Score Saved", name, ":", score);
+      setName("")
+      setScore(0)
+      navigate('/')
+    } else if(name && score == 0){
+      alert("Cant save score zero. Please Try again");
+      navigate('/')
     } else {
       alert("Please Enter Name to save Score");
     }
