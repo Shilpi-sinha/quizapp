@@ -23,18 +23,18 @@ const Game = (props) => {
   const [error, setError] = React.useState(false);
   const [value, setValue] = React.useState("");
 
-  let rdarr = [];
+  // let rdarr = [];
   const getRandomObject = (array) => {
     const randomdata = array[Math.floor(Math.random() * array.length)];
 
-    if (rdarr.includes(randomdata)) {
-      getRandomObject();
-    } else {
+    // if (rdarr.includes(randomdata)) {
+    //   getRandomObject();
+    // } else {
       setRandomQuestion(randomdata);
       setAnswer(randomdata.answer);
       console.log(answer);
-    }
-    rdarr.push(randomdata);
+    
+    // rdarr.push(randomdata);
 
   };
 
